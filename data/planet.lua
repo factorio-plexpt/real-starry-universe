@@ -562,6 +562,36 @@ local space_connections = {
     },
     {
         type = "space-connection",
+        name = "mars-phobos", -- Mars to Phobos
+        subgroup = "planet-connections",
+        from = "mars",
+        to = "phobos",
+        order = "d[mars]-e[phobos]",
+        length = 55.0, -- Not sure what the length should be.
+        asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.aquilo_solar_system_edge),
+        --asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.belt_asteroids),
+        space_effects = {
+            background_color = { r = 0.4, g = 0.3, b = 0.1 },
+            particle_color = { r = 0.6, g = 0.5, b = 0.2 }
+        }
+    },
+    {
+        type = "space-connection",
+        name = "phobos-deimos", -- Phobos to Deimos
+        subgroup = "planet-connections",
+        from = "phobos",
+        to = "deimos",
+        order = "e[phobos]-f[deimos]",
+        length = 55.0, -- Not sure what the length should be.
+        asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.aquilo_solar_system_edge),
+        --asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.belt_asteroids),
+        space_effects = {
+            background_color = { r = 0.4, g = 0.3, b = 0.1 },
+            particle_color = { r = 0.6, g = 0.5, b = 0.2 }
+        }
+    },
+    {
+        type = "space-connection",
         name = "mars-asteroid-belt-inner", -- Mars to the inner asteroid belt
         subgroup = "planet-connections",
         from = "mars",
@@ -813,6 +843,8 @@ local planets = {
     { "earth", "地球", { "space-platform-thruster" } },
     { "luna", "月球", { "planet-discovery-earth", "space-platform-thruster" } },
     { "mars", "火星", { "planet-discovery-luna", "space-platform-thruster" } },
+    { "phobos", "火卫一", { "planet-discovery-mars", "space-platform-thruster" } },
+    { "deimos", "火卫二", { "planet-discovery-mars", "space-platform-thruster" } },
     { "asteroid-belt-inner", "内小行星带", { "planet-discovery-mars", "space-platform-thruster" } },
     { "jupiter", "木星", { "planet-discovery-asteroid-belt-inner", "space-platform-thruster" } },
     { "saturn", "土星", { "planet-discovery-jupiter", "space-platform-thruster" } },
