@@ -153,7 +153,7 @@ local planets = {
             pressure = 0, -- Deimos is an asteroid-like moon and has no atmosphere.
             gravity = 0.003, -- This is in m/s, convert as necessary.
         },
-    }
+    },
     {
         type = "space-location", -- You should be able to land on asteroids in the asteroid belt. but must go to ceres
         name = "asteroid-belt-inner",
