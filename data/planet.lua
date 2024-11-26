@@ -837,33 +837,40 @@ end
 
 data:extend(space_connections)
 
-local planets = {
-    { "mercury", "水星", { "planet-discovery-venus", "space-platform-thruster" } },
-    { "venus", "金星", { "planet-discovery-luna", "space-platform-thruster" } },
-    { "earth", "地球", { "space-platform-thruster" } },
-    { "luna", "月球", { "planet-discovery-earth", "space-platform-thruster" } },
-    { "mars", "火星", { "planet-discovery-luna", "space-platform-thruster" } },
-    { "phobos", "火卫一", { "planet-discovery-mars", "space-platform-thruster" } },
-    { "deimos", "火卫二", { "planet-discovery-mars", "space-platform-thruster" } },
-    { "asteroid-belt-inner", "内小行星带", { "planet-discovery-mars", "space-platform-thruster" } },
-    { "jupiter", "木星", { "planet-discovery-asteroid-belt-inner", "space-platform-thruster" } },
-    { "saturn", "土星", { "planet-discovery-jupiter", "space-platform-thruster" } },
-    { "uranus", "天王星", { "planet-discovery-saturn", "space-platform-thruster" } },
-    { "neptune", "海王星", { "planet-discovery-uranus", "space-platform-thruster" } },
-    { "pluto", "冥王星", { "planet-discovery-neptune", "space-platform-thruster" } },
-    { "asteroid-belt-outer", "柯伊伯带", { "planet-discovery-pluto", "space-platform-thruster" } }
+local PlanetTechnologies = {
+    { "mercury", "水星", { "planet-discovery-venus", "space-platform-thruster" }, false },
+    { "venus", "金星", { "planet-discovery-luna", "space-platform-thruster" }, false },
+    { "earth", "地球", { "space-platform-thruster" }, false },
+    { "luna", "月球", { "planet-discovery-earth", "space-platform-thruster" }, false },
+    { "mars", "火星", { "planet-discovery-luna", "space-platform-thruster" }, false },
+    { "phobos", "火卫一", { "planet-discovery-mars", "space-platform-thruster" }, true },
+    { "deimos", "火卫二", { "planet-discovery-mars", "space-platform-thruster" }, true },
+    { "asteroid-belt-inner", "内小行星带", { "planet-discovery-mars", "space-platform-thruster" }, false },
+    { "jupiter", "木星", { "planet-discovery-asteroid-belt-inner", "space-platform-thruster" }, false },
+    { "saturn", "土星", { "planet-discovery-jupiter", "space-platform-thruster" }, false },
+    { "uranus", "天王星", { "planet-discovery-saturn", "space-platform-thruster" }, false },
+    { "neptune", "海王星", { "planet-discovery-uranus", "space-platform-thruster" }, false },
+    { "pluto", "冥王星", { "planet-discovery-neptune", "space-platform-thruster" }, false },
+    { "asteroid-belt-outer", "柯伊伯带", { "planet-discovery-pluto", "space-platform-thruster" }, false }
 }
 
-for i, planet in ipairs(planets) do
+for i, planet in ipairs(PlanetTechnologies) do
     local planet_name = planet[1]
     local planet_description = planet[2]
     local prerequisites = planet[3]
+    local IconIsBlank = planet[4]
+    local Icon = ""
+    if IconIsBlank then
+        Icon = "__real-starry-universe__/graphics/blank.png"
+    else
+        Icon = "__real-starry-universe__/graphics/" .. planet_name .. ".png"
+    end
 
     data:extend({
         {
             type = "technology",
             name = "planet-discovery-" .. planet_name,
-            icon = "__real-starry-universe__/graphics/" .. planet_name .. ".png", -- 替换为行星对应的图标路径
+            icon = Icon, -- 替换为行星对应的图标路径
             icon_size = 512,
             essential = true,
             effects = {
