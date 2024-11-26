@@ -568,7 +568,7 @@ local space_connections = {
         to = "phobos",
         order = "d[mars]-e[phobos]",
         length = 55.0, -- Not sure what the length should be.
-        asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.aquilo_solar_system_edge),
+        asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.nauvis_gleba),
         --asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.belt_asteroids),
         space_effects = {
             background_color = { r = 0.4, g = 0.3, b = 0.1 },
@@ -583,7 +583,7 @@ local space_connections = {
         to = "deimos",
         order = "e[phobos]-f[deimos]",
         length = 55.0, -- Not sure what the length should be.
-        asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.aquilo_solar_system_edge),
+        asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.nauvis_gleba),
         --asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.belt_asteroids),
         space_effects = {
             background_color = { r = 0.4, g = 0.3, b = 0.1 },
