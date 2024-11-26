@@ -93,7 +93,7 @@ local planets = {
     },
     {
         type = "planet",
-        name = "mars", -- Phobos, the first moon of mars.
+        name = "mars", 
         icon = "__real-starry-universe__/graphics/mars.png",
         icon_size = 512,
         starmap_icon = "__real-starry-universe__/graphics/mars.png",
@@ -114,7 +114,7 @@ local planets = {
     },
     {
         type = "planet",
-        name = "phobos", -- 谷神星
+        name = "phobos", -- Phobos, the first moon of mars.
         icon = "__real-starry-universe__/graphics/blank.png",
         icon_size = 32,
         starmap_icon = "__real-starry-universe__/graphics/blank.png",
