@@ -93,7 +93,7 @@ local planets = {
     },
     {
         type = "planet",
-        name = "mars", -- 火星
+        name = "mars", -- Phobos, the first moon of mars.
         icon = "__real-starry-universe__/graphics/mars.png",
         icon_size = 512,
         starmap_icon = "__real-starry-universe__/graphics/mars.png",
@@ -112,6 +112,48 @@ local planets = {
             gravity = 3.71, -- 重力较低
         },
     },
+    {
+        type = "planet",
+        name = "phobos", -- 谷神星
+        icon = "__real-starry-universe__/graphics/blank.png",
+        icon_size = 32,
+        starmap_icon = "__real-starry-universe__/graphics/blank.png",
+        starmap_icon_size = 32,
+        gravity_pull = 0.0057, -- This is in m/s, convert as necessary.
+        distance = 22.8009401205, -- 0.0000626747 AU, or 9376 km from mars, added to the distance of mars from the sun.
+        orientation = 160 / 360, -- The orientation of mars, may need to be changed.
+        magnitude = 0.22, -- Not sure what magnitude, so just that of ceres for now.
+        map_gen_settings = planet_map_gen.phobos(),
+        surface_properties = {
+            -- Phobos
+            ["day-night-cycle"] = 0.318912037 * day, -- Day night cycle of phobos.
+            ["magnetic-field"] = 0, -- Phobos has no significant magnetic field.
+            ["solar-power"] = 43.073785011, -- Aproximate solar power recieved on phobos. Consistent with the solar power recieved on mars, so likely correct(ish).
+            pressure = 0, -- Phobos is an asteroid-like moon and has no atmosphere.
+            gravity = 0.0057, -- This is in m/s, convert as necessary.
+        },
+    },
+    {
+        type = "planet",
+        name = "deimos", -- Deimos, the second moon of mars.
+        icon = "__real-starry-universe__/graphics/blank.png",
+        icon_size = 32,
+        starmap_icon = "__real-starry-universe__/graphics/blank.png",
+        starmap_icon_size = 32,
+        gravity_pull = 0.003, -- This is in m/s, convert as necessary.
+        distance = 22.8023526271, -- 0.0001568418046 AU, or 23463.2 km from mars, added to the distance of mars from the sun.
+        orientation = 160 / 360, -- The orientation of mars, may need to be changed.
+        magnitude = 0.22, -- Not sure what magnitude, so just that of ceres for now.
+        map_gen_settings = planet_map_gen.deimos(),
+        surface_properties = {
+            -- Deimos
+            ["day-night-cycle"] = 0.3125 * day, -- Day night cycle of deimos.
+            ["magnetic-field"] = 0, -- Deimos has no significant magnetic field.
+            ["solar-power"] = 43.046800236, -- Aproximate solar power recieved on deimos. Consistent with the solar power recieved on mars, so likely correct(ish).
+            pressure = 0, -- Deimos is an asteroid-like moon and has no atmosphere.
+            gravity = 0.003, -- This is in m/s, convert as necessary.
+        },
+    }
     {
         type = "space-location", -- You should be able to land on asteroids in the asteroid belt. but must go to ceres
         name = "asteroid-belt-inner",
