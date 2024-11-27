@@ -19,6 +19,7 @@ local planets = {
         orientation = 40 / 360, -- 与星系中心角度
         magnitude = 0.383, -- Mercury (水星)
         map_gen_settings = planet_map_gen.mercury(),
+        asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.nauvis_vulcanus, 0.9),
         surface_properties = {
             -- Mercury (水星)
             ["day-night-cycle"] = 58.7 * day, -- 水星昼夜周期：58.7个地球日
@@ -40,6 +41,7 @@ local planets = {
         orientation = 80 / 360,
         magnitude = 0.949, -- Venus (金星)
         map_gen_settings = planet_map_gen.venus(),
+        asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.nauvis_vulcanus, 0.9),
         surface_properties = {
             -- Venus (金星)
             ["day-night-cycle"] = 243 * day, -- 金星昼夜周期：243个地球日
@@ -61,6 +63,7 @@ local planets = {
         orientation = 120 / 360,
         magnitude = 1,
         map_gen_settings = planet_map_gen.normal(),
+        asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.nauvis_vulcanus, 0.9),
         surface_properties = {
             -- Earth (地球)
             ["day-night-cycle"] = 1 * day, -- 地球昼夜周期：1个地球日
@@ -82,6 +85,7 @@ local planets = {
         orientation = 0.33, -- 地球轨道附近
         magnitude = 0.273, -- Luna (月球)
         map_gen_settings = planet_map_gen.luna(), -- 使用月球专属生成方法
+        asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.nauvis_vulcanus, 0.9),
         surface_properties = {
             -- Luna (月球)
             ["day-night-cycle"] = 30 * day, -- 月球昼夜周期：27.3个地球日
@@ -93,7 +97,7 @@ local planets = {
     },
     {
         type = "planet",
-        name = "mars", -- 火星
+        name = "mars", 
         icon = "__real-starry-universe__/graphics/mars.png",
         icon_size = 512,
         starmap_icon = "__real-starry-universe__/graphics/mars.png",
@@ -103,6 +107,7 @@ local planets = {
         orientation = 160 / 360,
         magnitude = 0.532, -- Mars (火星)
         map_gen_settings = planet_map_gen.mars(),
+        asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.nauvis_vulcanus, 0.9),
         surface_properties = {
             -- Mars (火星)
             ["day-night-cycle"] = 1.03 * day, -- 火星昼夜周期：接近地球
@@ -110,6 +115,50 @@ local planets = {
             ["solar-power"] = 43, -- 较远离太阳，太阳能效率低
             pressure = 6, -- 极低的大气压（单位：Pa）
             gravity = 3.71, -- 重力较低
+        },
+    },
+    {
+        type = "planet",
+        name = "phobos", -- Phobos, the first moon of mars.
+        icon = "__real-starry-universe__/graphics/blank.png",
+        icon_size = 32,
+        starmap_icon = "__real-starry-universe__/graphics/blank.png",
+        starmap_icon_size = 32,
+        gravity_pull = 0.0057, -- This is in m/s, convert as necessary.
+        distance = 22.8009401205, -- 0.0000626747 AU, or 9376 km from mars, added to the distance of mars from the sun.
+        orientation = 160 / 360, -- The orientation of mars, may need to be changed.
+        magnitude = 0.22, -- Not sure what magnitude, so just that of ceres for now.
+        map_gen_settings = planet_map_gen.phobos(),
+        asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.nauvis_vulcanus, 0.9),
+        surface_properties = {
+            -- Phobos
+            ["day-night-cycle"] = 0.318912037 * day, -- Day night cycle of phobos.
+            ["magnetic-field"] = 0, -- Phobos has no significant magnetic field.
+            ["solar-power"] = 43.073785011, -- Aproximate solar power recieved on phobos. Consistent with the solar power recieved on mars, so likely correct(ish).
+            pressure = 0, -- Phobos is an asteroid-like moon and has no atmosphere.
+            gravity = 0.0057, -- This is in m/s, convert as necessary.
+        },
+    },
+    {
+        type = "planet",
+        name = "deimos", -- Deimos, the second moon of mars.
+        icon = "__real-starry-universe__/graphics/blank.png",
+        icon_size = 32,
+        starmap_icon = "__real-starry-universe__/graphics/blank.png",
+        starmap_icon_size = 32,
+        gravity_pull = 0.003, -- This is in m/s, convert as necessary.
+        distance = 22.8023526271, -- 0.0001568418046 AU, or 23463.2 km from mars, added to the distance of mars from the sun.
+        orientation = 160 / 360, -- The orientation of mars, may need to be changed.
+        magnitude = 0.22, -- Not sure what magnitude, so just that of ceres for now.
+        map_gen_settings = planet_map_gen.deimos(),
+        asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.nauvis_vulcanus, 0.9),
+        surface_properties = {
+            -- Deimos
+            ["day-night-cycle"] = 0.3125 * day, -- Day night cycle of deimos.
+            ["magnetic-field"] = 0, -- Deimos has no significant magnetic field.
+            ["solar-power"] = 43.046800236, -- Aproximate solar power recieved on deimos. Consistent with the solar power recieved on mars, so likely correct(ish).
+            pressure = 0, -- Deimos is an asteroid-like moon and has no atmosphere.
+            gravity = 0.003, -- This is in m/s, convert as necessary.
         },
     },
     {
@@ -127,6 +176,7 @@ local planets = {
         orientation = 185 / 360,
         magnitude = 1,
         map_gen_settings = planet_map_gen.asteroid_belt_1(),
+        asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.nauvis_vulcanus, 0.9),
         surface_properties = {
             -- Inner Asteroid Belt (Between Mars and Jupiter)
             ["day-night-cycle"] = 0.37681889586 * day, -- Aproximate day-night cycle for a specific asteroid (which will right now represnent all asteroids)
@@ -148,6 +198,7 @@ local planets = {
         orientation = 200 / 360,
         magnitude = 0.22, -- Ceres (谷神星)
         map_gen_settings = planet_map_gen.ceres(),
+        asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.nauvis_vulcanus, 0.9),
         surface_properties = {
             -- Ceres (谷神星)
             ["day-night-cycle"] = 0.37681889586 * day, -- 谷神星昼夜周期：约9小时
@@ -170,6 +221,7 @@ local planets = {
         orientation = 260 / 360,
         magnitude = 0.2, -- Vesta (灶神星)
         map_gen_settings = planet_map_gen.vesta(),
+        asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.nauvis_vulcanus, 0.9),
         surface_properties = {
             -- Vesta (灶神星)
             ["day-night-cycle"] = 0.37681889586 * day, -- 灶神星昼夜周期：约5.3小时
@@ -192,6 +244,7 @@ local planets = {
         orientation = 300 / 360,
         magnitude = 0.2, -- Pallas (智神星)
         map_gen_settings = planet_map_gen.pallas(),
+        asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.nauvis_vulcanus, 0.9),
         surface_properties = {
             -- Pallas (智神星)
             ["day-night-cycle"] = 0.37681889586 * day, -- 智神星昼夜周期：约7.8小时
@@ -214,6 +267,7 @@ local planets = {
         orientation = 355 / 360,
         magnitude = 0.2, -- Hygiea (健神星)
         map_gen_settings = planet_map_gen.hygiea(),
+        asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.nauvis_vulcanus, 0.9),
         surface_properties = {
             -- Hygiea (健神星)
             ["day-night-cycle"] = 0.37681889586 * day, -- 健神星昼夜周期：约13小时
@@ -235,6 +289,7 @@ local planets = {
         orientation = 240 / 360,
         magnitude = 11.209, -- Jupiter (木星)
         map_gen_settings = planet_map_gen.jupiter(),
+        asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.nauvis_vulcanus, 0.9),
         surface_properties = {
             -- Jupiter (木星)
             ["day-night-cycle"] = 0.41 * day, -- 木星昼夜周期：10小时
@@ -256,6 +311,7 @@ local planets = {
         orientation = 280 / 360,
         magnitude = 9.449, -- Saturn (土星)
         map_gen_settings = planet_map_gen.saturn(),
+        asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.nauvis_vulcanus, 0.9),
         surface_properties = {
             -- Saturn (土星)
             ["day-night-cycle"] = 0.45 * day, -- 土星昼夜周期：10.7小时
@@ -277,6 +333,7 @@ local planets = {
         orientation = 320 / 360,
         magnitude = 4.007, -- Uranus (天王星)
         map_gen_settings = planet_map_gen.uranus(),
+        asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.nauvis_vulcanus, 0.9),
         surface_properties = {
             -- Uranus (天王星)
             ["day-night-cycle"] = 0.72 * day, -- 天王星昼夜周期：17小时
@@ -298,6 +355,7 @@ local planets = {
         orientation = 355 / 360,
         magnitude = 3.883, -- Neptune (海王星)
         map_gen_settings = planet_map_gen.neptune(),
+        asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.nauvis_vulcanus, 0.9),
         surface_properties = {
             -- Neptune (海王星)
             ["day-night-cycle"] = 0.67 * day, -- 海王星昼夜周期：16小时
@@ -319,6 +377,7 @@ local planets = {
         orientation = 290 / 360,
         magnitude = 0.3,
         map_gen_settings = planet_map_gen.pluto(),
+        asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.nauvis_vulcanus, 0.9),
         surface_properties = {
             -- Pluto (冥王星)
             ["day-night-cycle"] = 6.39 * day, -- 冥王星昼夜周期：6.39个地球日
@@ -342,6 +401,7 @@ local planets = {
         orientation = 359 / 360,
         magnitude = 0.4,
         map_gen_settings = planet_map_gen.asteroid_belt_1(),
+        asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.nauvis_vulcanus, 0.9),
         surface_properties = {
             -- Outer Asteroid Belt (Between Neptune and Solar System Edge)
             ["day-night-cycle"] = 0.28449826615 * day, -- Aproximate day-night cycle for asteroids in the outer asteroid belt (also known as kuiper belt)
@@ -364,6 +424,7 @@ local planets = {
         orientation = 220 / 360,
         magnitude = 0.25,
         map_gen_settings = planet_map_gen.makemake(),
+        asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.nauvis_vulcanus, 0.9),
         surface_properties = {
             -- Makemake (鸟神星)
             ["day-night-cycle"] = 0.37681889586 * day, -- 鸟神星昼夜周期：约22.5小时
@@ -386,6 +447,7 @@ local planets = {
         orientation = 150 / 360,
         magnitude = 0.25,
         map_gen_settings = planet_map_gen.haumea(),
+        asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.nauvis_vulcanus, 0.9),
         surface_properties = {
             -- Haumea (妊神星)
             ["day-night-cycle"] = 0.37681889586 * day, -- 妊神星昼夜周期：约3.9小时
@@ -407,6 +469,7 @@ local planets = {
         orientation = 80 / 360,
         magnitude = 0.25,
         map_gen_settings = planet_map_gen.eris(),
+        asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.nauvis_vulcanus, 0.9),
         surface_properties = {
             -- Eris (阋神星)
             ["day-night-cycle"] = 0.37681889586 * day, -- 阋神星昼夜周期：约15.8小时
@@ -428,6 +491,7 @@ local planets = {
         orientation = 10 / 360,
         magnitude = 0.25,
         map_gen_settings = planet_map_gen.gonggong(),
+        asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.nauvis_vulcanus, 0.9),
         surface_properties = {
             -- Gonggong (共工星)
             ["day-night-cycle"] = 0.37681889586 * day, -- 共工星昼夜周期：约25小时
@@ -440,6 +504,7 @@ local planets = {
 
 }
 
+
 data:extend(planets)
 
 --https://lua-api.factorio.com/latest/prototypes/SpaceConnectionPrototype.html
@@ -451,7 +516,7 @@ local space_connections = {
         from = "mercury",
         to = "venus",
         order = "a[mercury]-b[venus]",
-        length = 5.0, -- 水星到金星的距离，比例单位
+        length = 869585.66, -- Average distance between mercury and venus in units of 100 kilometers.
         asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.nauvis_gleba),
         --asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.aquilo_solar_system_edge),
         space_effects = {
@@ -466,7 +531,7 @@ local space_connections = {
         from = "venus",
         to = "earth",
         order = "b[venus]-c[earth]",
-        length = 4.2,
+        length = 1305758.64, -- Average distance between venus and earth in units of 100 kilometers.
         asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.nauvis_gleba),
         --asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.medium_asteroids),
         space_effects = {
@@ -481,7 +546,7 @@ local space_connections = {
         from = "nauvis",
         to = "earth",
         order = "b[venus]-c[earth]",
-        length = 4.2,
+        length = 5,
         asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.nauvis_gleba),
         --asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.medium_asteroids),
         space_effects = {
@@ -496,7 +561,7 @@ local space_connections = {
         from = "earth",
         to = "luna",
         order = "z[a]",
-        length = 15, -- 非常近的距离
+        length = 3843.99, -- Average distance between earth and luna in units of 100 kilometers.
         asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.nauvis_gleba),
         space_effects = {
             background_color = { r = 0.8, g = 0.8, b = 0.9 },
@@ -510,7 +575,7 @@ local space_connections = {
         from = "earth",
         to = "mars",
         order = "c[earth]-d[mars]",
-        length = 7.6,
+        length = 1928802.33, -- Average distance between earth and mars in units of 100 kilometers.
         asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.nauvis_gleba),
         --asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.large_asteroids),
         space_effects = {
@@ -520,12 +585,42 @@ local space_connections = {
     },
     {
         type = "space-connection",
+        name = "mars-phobos", -- Mars to Phobos
+        subgroup = "planet-connections",
+        from = "mars",
+        to = "phobos",
+        order = "d[mars]-e[phobos]",
+        length = 93.76, -- Average distance between mars and phobos in units of 100 kilometers.
+        asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.nauvis_gleba),
+        --asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.belt_asteroids),
+        space_effects = {
+            background_color = { r = 0.4, g = 0.3, b = 0.1 },
+            particle_color = { r = 0.6, g = 0.5, b = 0.2 }
+        }
+    },
+    {
+        type = "space-connection",
+        name = "phobos-deimos", -- Phobos to Deimos
+        subgroup = "planet-connections",
+        from = "phobos",
+        to = "deimos",
+        order = "e[phobos]-f[deimos]",
+        length = 180.06, -- Average distance between phobos and deimos in units of 100 kilometers.
+        asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.nauvis_gleba),
+        --asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.belt_asteroids),
+        space_effects = {
+            background_color = { r = 0.4, g = 0.3, b = 0.1 },
+            particle_color = { r = 0.6, g = 0.5, b = 0.2 }
+        }
+    },
+    {
+        type = "space-connection",
         name = "mars-asteroid-belt-inner", -- Mars to the inner asteroid belt
         subgroup = "planet-connections",
         from = "mars",
         to = "asteroid-belt-inner",
         order = "d[mars]-e[asteroid-belt-inner]",
-        length = 55.0,
+        length = 3283879.68, -- Average distance between mars and the center of the inner asteroid belt in units of 100 kilometers.
         asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.aquilo_solar_system_edge),
         --asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.belt_asteroids),
         space_effects = {
@@ -601,7 +696,7 @@ local space_connections = {
         from = "asteroid-belt-inner",
         to = "jupiter",
         order = "e[asteroid-belt-inner]-f[jupiter]",
-        length = 55.0,
+        length = 6216252.06, -- Average distance between the center of the inner asteroid belt and jupiter in units of 100 kilometers.
         asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.aquilo_solar_system_edge),
         --asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.belt_asteroids),
         space_effects = {
@@ -759,37 +854,60 @@ local space_connections = {
     },
 }
 
-for i, v in ipairs(space_connections) do
-    v.length = v.length * 100
+local ScaleFactor = 100000 -- Scale each space connection by this factor.
+
+for i,SpaceConnection in pairs(space_connections) do
+    SpaceConnection.length = SpaceConnection.length * 100 -- Multiply each space connection length by 100 as the lengths in each space connection as defined above are in kilometers times 100.
+    
+    SpaceConnection.length = SpaceConnection.length / ScaleFactor -- Divide each length by the Scale Factor.
+    
+    if math.ceil(SpaceConnection.length) ~= SpaceConnection.length then
+        SpaceConnection.length = math.ceil(SpaceConnection.length) -- Round up to the nearest integer.
+    end
+    
+    if SpaceConnection.length < 100 then
+        SpaceConnection.length = 100 -- Set the length to 100 if the length is less than 100. In my testing, anything less than 100 breaks at speeds reached in the base game.
+    end
+    
+    space_connections[i] = SpaceConnection -- Set the new space connection to the modified one.
 end
 
 data:extend(space_connections)
 
-local planets = {
-    { "mercury", "水星", { "planet-discovery-venus", "space-platform-thruster" } },
-    { "venus", "金星", { "planet-discovery-luna", "space-platform-thruster" } },
-    { "earth", "地球", { "space-platform-thruster" } },
-    { "luna", "月球", { "planet-discovery-earth", "space-platform-thruster" } },
-    { "mars", "火星", { "planet-discovery-luna", "space-platform-thruster" } },
-    { "asteroid-belt-inner", "内小行星带", { "planet-discovery-mars", "space-platform-thruster" } },
-    { "jupiter", "木星", { "planet-discovery-asteroid-belt-inner", "space-platform-thruster" } },
-    { "saturn", "土星", { "planet-discovery-jupiter", "space-platform-thruster" } },
-    { "uranus", "天王星", { "planet-discovery-saturn", "space-platform-thruster" } },
-    { "neptune", "海王星", { "planet-discovery-uranus", "space-platform-thruster" } },
-    { "pluto", "冥王星", { "planet-discovery-neptune", "space-platform-thruster" } },
-    { "asteroid-belt-outer", "柯伊伯带", { "planet-discovery-pluto", "space-platform-thruster" } }
+local PlanetTechnologies = {
+    { "mercury", "水星", { "planet-discovery-venus", "space-platform-thruster" }, false },
+    { "venus", "金星", { "planet-discovery-luna", "space-platform-thruster" }, false },
+    { "earth", "地球", { "space-platform-thruster" }, false },
+    { "luna", "月球", { "planet-discovery-earth", "space-platform-thruster" }, false },
+    { "mars", "火星", { "planet-discovery-luna", "space-platform-thruster" }, false },
+    { "phobos", "火卫一", { "planet-discovery-mars", "space-platform-thruster" }, true },
+    { "deimos", "火卫二", { "planet-discovery-mars", "space-platform-thruster" }, true },
+    { "asteroid-belt-inner", "内小行星带", { "planet-discovery-mars", "space-platform-thruster" }, false },
+    { "jupiter", "木星", { "planet-discovery-asteroid-belt-inner", "space-platform-thruster" }, false },
+    { "saturn", "土星", { "planet-discovery-jupiter", "space-platform-thruster" }, false },
+    { "uranus", "天王星", { "planet-discovery-saturn", "space-platform-thruster" }, false },
+    { "neptune", "海王星", { "planet-discovery-uranus", "space-platform-thruster" }, false },
+    { "pluto", "冥王星", { "planet-discovery-neptune", "space-platform-thruster" }, false },
+    { "asteroid-belt-outer", "柯伊伯带", { "planet-discovery-pluto", "space-platform-thruster" }, false }
 }
 
-for i, planet in ipairs(planets) do
+for i, planet in ipairs(PlanetTechnologies) do
     local planet_name = planet[1]
     local planet_description = planet[2]
     local prerequisites = planet[3]
+    local IconIsBlank = planet[4]
+    local Icon = ""
+    if IconIsBlank then
+        Icon = "__real-starry-universe__/graphics/blank.png"
+    else
+        Icon = "__real-starry-universe__/graphics/" .. planet_name .. ".png"
+    end
 
     data:extend({
         {
             type = "technology",
             name = "planet-discovery-" .. planet_name,
-            icon = "__real-starry-universe__/graphics/" .. planet_name .. ".png", -- 替换为行星对应的图标路径
+            icon = Icon, -- 替换为行星对应的图标路径
             icon_size = 512,
             essential = true,
             effects = {

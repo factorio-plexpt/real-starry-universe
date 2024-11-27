@@ -1,2 +1,2 @@
 local SolarSystem = require("asteroid_definitions.solar-system")
-return {solar-system = SolarSystem}
+return {["solar-system"] = SolarSystem}
