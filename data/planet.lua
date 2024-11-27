@@ -504,6 +504,7 @@ local planets = {
 
 }
 
+
 data:extend(planets)
 
 --https://lua-api.factorio.com/latest/prototypes/SpaceConnectionPrototype.html
@@ -853,8 +854,22 @@ local space_connections = {
     },
 }
 
-for i, v in ipairs(space_connections) do
-    v.length = v.length * 100
+local ScaleFactor = 100000 -- Scale each space connection by this factor.
+
+for i,SpaceConnection in pairs(space_connections) do
+    SpaceConnection.length = SpaceConnection.length * 100 -- Multiply each space connection length by 100 as the lengths in each space connection as defined above are in kilometers times 100.
+    
+    SpaceConnection.length = SpaceConnection.length / ScaleFactor -- Divide each length by the Scale Factor.
+    
+    if math.ceil(SpaceConnection.length) ~= SpaceConnection.length then
+        SpaceConnection.length = math.ceil(SpaceConnection.length) -- Round up to the nearest integer.
+    end
+    
+    if SpaceConnection.length < 100 then
+        SpaceConnection.length = 100 -- Set the length to 100 if the length is less than 100. In my testing, anything less than 100 breaks at speeds reached in the base game.
+    end
+    
+    space_connections[i] = SpaceConnection -- Set the new space connection to the modified one.
 end
 
 data:extend(space_connections)
