@@ -1,5 +1,12 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.0.17
+Date: 2024-11-30
+  Features:
+    - add starmap backgroud (thanks Tserup)
+
+---------------------------------------------------------------------------------------------------
 Version: 1.0.16
+Date: 2024-11-30
   Features:
     - add dependency alien-biomes
     - **Space Effects Optimization:** Defined unique background colors and particle colors for new space connections to enhance visual effects.
@@ -14,7 +21,6 @@ Version: 1.0.16
        - Eris
        - Gonggong
     - If any issues are encountered during the update process, please report them promptly so we can address them. Thank you for your support and feedback! We will continue to work hard to bring you a better gaming experience.
-
     -    新增矮行星：
          谷神星（Ceres）
          灶神星（Vesta）
@@ -30,10 +36,13 @@ Version: 1.0.16
 
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.12
+Date: 2024-11-30
+
   Features:
     - During rapid development, changelogs may not be updated frequently.
 
 ---------------------------------------------------------------------------------------------------
-Version: 1.0.6
+Version: 1.0.0
+Date: 2024-11-20
   Features:
-    - Added Changelog
+    - INIT
