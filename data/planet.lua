@@ -19,6 +19,7 @@ local planets = {
         orientation = 40 / 360, -- 与星系中心角度
         magnitude = 0.383, -- Mercury (水星)
         map_gen_settings = planet_map_gen.mercury(),
+        asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.nauvis_vulcanus, 0.9),
         surface_properties = {
             -- Mercury (水星)
             ["day-night-cycle"] = 58.7 * day, -- 水星昼夜周期：58.7个地球日
@@ -40,6 +41,7 @@ local planets = {
         orientation = 80 / 360,
         magnitude = 0.949, -- Venus (金星)
         map_gen_settings = planet_map_gen.venus(),
+        asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.nauvis_vulcanus, 0.9),
         surface_properties = {
             -- Venus (金星)
             ["day-night-cycle"] = 243 * day, -- 金星昼夜周期：243个地球日
@@ -61,6 +63,7 @@ local planets = {
         orientation = 120 / 360,
         magnitude = 1,
         map_gen_settings = planet_map_gen.normal(),
+        asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.nauvis_vulcanus, 0.9),
         surface_properties = {
             -- Earth (地球)
             ["day-night-cycle"] = 1 * day, -- 地球昼夜周期：1个地球日
@@ -82,6 +85,7 @@ local planets = {
         orientation = 0.33, -- 地球轨道附近
         magnitude = 0.273, -- Luna (月球)
         map_gen_settings = planet_map_gen.luna(), -- 使用月球专属生成方法
+        asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.nauvis_vulcanus, 0.9),
         surface_properties = {
             -- Luna (月球)
             ["day-night-cycle"] = 30 * day, -- 月球昼夜周期：27.3个地球日
@@ -103,6 +107,7 @@ local planets = {
         orientation = 160 / 360,
         magnitude = 0.532, -- Mars (火星)
         map_gen_settings = planet_map_gen.mars(),
+        asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.nauvis_vulcanus, 0.9),
         surface_properties = {
             -- Mars (火星)
             ["day-night-cycle"] = 1.03 * day, -- 火星昼夜周期：接近地球
@@ -124,6 +129,7 @@ local planets = {
         orientation = 160 / 360, -- The orientation of mars, may need to be changed.
         magnitude = 0.22, -- Not sure what magnitude, so just that of ceres for now.
         map_gen_settings = planet_map_gen.phobos(),
+        asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.nauvis_vulcanus, 0.9),
         surface_properties = {
             -- Phobos
             ["day-night-cycle"] = 0.318912037 * day, -- Day night cycle of phobos.
@@ -145,6 +151,7 @@ local planets = {
         orientation = 160 / 360, -- The orientation of mars, may need to be changed.
         magnitude = 0.22, -- Not sure what magnitude, so just that of ceres for now.
         map_gen_settings = planet_map_gen.deimos(),
+        asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.nauvis_vulcanus, 0.9),
         surface_properties = {
             -- Deimos
             ["day-night-cycle"] = 0.3125 * day, -- Day night cycle of deimos.
@@ -169,6 +176,7 @@ local planets = {
         orientation = 185 / 360,
         magnitude = 1,
         map_gen_settings = planet_map_gen.asteroid_belt_1(),
+        asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.nauvis_vulcanus, 0.9),
         surface_properties = {
             -- Inner Asteroid Belt (Between Mars and Jupiter)
             ["day-night-cycle"] = 0.37681889586 * day, -- Aproximate day-night cycle for a specific asteroid (which will right now represnent all asteroids)
@@ -190,6 +198,7 @@ local planets = {
         orientation = 200 / 360,
         magnitude = 0.22, -- Ceres (谷神星)
         map_gen_settings = planet_map_gen.ceres(),
+        asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.nauvis_vulcanus, 0.9),
         surface_properties = {
             -- Ceres (谷神星)
             ["day-night-cycle"] = 0.37681889586 * day, -- 谷神星昼夜周期：约9小时
@@ -212,6 +221,7 @@ local planets = {
         orientation = 260 / 360,
         magnitude = 0.2, -- Vesta (灶神星)
         map_gen_settings = planet_map_gen.vesta(),
+        asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.nauvis_vulcanus, 0.9),
         surface_properties = {
             -- Vesta (灶神星)
             ["day-night-cycle"] = 0.37681889586 * day, -- 灶神星昼夜周期：约5.3小时
@@ -234,6 +244,7 @@ local planets = {
         orientation = 300 / 360,
         magnitude = 0.2, -- Pallas (智神星)
         map_gen_settings = planet_map_gen.pallas(),
+        asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.nauvis_vulcanus, 0.9),
         surface_properties = {
             -- Pallas (智神星)
             ["day-night-cycle"] = 0.37681889586 * day, -- 智神星昼夜周期：约7.8小时
@@ -256,6 +267,7 @@ local planets = {
         orientation = 355 / 360,
         magnitude = 0.2, -- Hygiea (健神星)
         map_gen_settings = planet_map_gen.hygiea(),
+        asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.nauvis_vulcanus, 0.9),
         surface_properties = {
             -- Hygiea (健神星)
             ["day-night-cycle"] = 0.37681889586 * day, -- 健神星昼夜周期：约13小时
@@ -277,6 +289,7 @@ local planets = {
         orientation = 240 / 360,
         magnitude = 11.209, -- Jupiter (木星)
         map_gen_settings = planet_map_gen.jupiter(),
+        asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.nauvis_vulcanus, 0.9),
         surface_properties = {
             -- Jupiter (木星)
             ["day-night-cycle"] = 0.41 * day, -- 木星昼夜周期：10小时
@@ -298,6 +311,7 @@ local planets = {
         orientation = 280 / 360,
         magnitude = 9.449, -- Saturn (土星)
         map_gen_settings = planet_map_gen.saturn(),
+        asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.nauvis_vulcanus, 0.9),
         surface_properties = {
             -- Saturn (土星)
             ["day-night-cycle"] = 0.45 * day, -- 土星昼夜周期：10.7小时
@@ -319,6 +333,7 @@ local planets = {
         orientation = 320 / 360,
         magnitude = 4.007, -- Uranus (天王星)
         map_gen_settings = planet_map_gen.uranus(),
+        asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.nauvis_vulcanus, 0.9),
         surface_properties = {
             -- Uranus (天王星)
             ["day-night-cycle"] = 0.72 * day, -- 天王星昼夜周期：17小时
@@ -340,6 +355,7 @@ local planets = {
         orientation = 355 / 360,
         magnitude = 3.883, -- Neptune (海王星)
         map_gen_settings = planet_map_gen.neptune(),
+        asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.nauvis_vulcanus, 0.9),
         surface_properties = {
             -- Neptune (海王星)
             ["day-night-cycle"] = 0.67 * day, -- 海王星昼夜周期：16小时
@@ -361,6 +377,7 @@ local planets = {
         orientation = 290 / 360,
         magnitude = 0.3,
         map_gen_settings = planet_map_gen.pluto(),
+        asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.nauvis_vulcanus, 0.9),
         surface_properties = {
             -- Pluto (冥王星)
             ["day-night-cycle"] = 6.39 * day, -- 冥王星昼夜周期：6.39个地球日
@@ -384,6 +401,7 @@ local planets = {
         orientation = 359 / 360,
         magnitude = 0.4,
         map_gen_settings = planet_map_gen.asteroid_belt_1(),
+        asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.nauvis_vulcanus, 0.9),
         surface_properties = {
             -- Outer Asteroid Belt (Between Neptune and Solar System Edge)
             ["day-night-cycle"] = 0.28449826615 * day, -- Aproximate day-night cycle for asteroids in the outer asteroid belt (also known as kuiper belt)
@@ -406,6 +424,7 @@ local planets = {
         orientation = 220 / 360,
         magnitude = 0.25,
         map_gen_settings = planet_map_gen.makemake(),
+        asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.nauvis_vulcanus, 0.9),
         surface_properties = {
             -- Makemake (鸟神星)
             ["day-night-cycle"] = 0.37681889586 * day, -- 鸟神星昼夜周期：约22.5小时
@@ -428,6 +447,7 @@ local planets = {
         orientation = 150 / 360,
         magnitude = 0.25,
         map_gen_settings = planet_map_gen.haumea(),
+        asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.nauvis_vulcanus, 0.9),
         surface_properties = {
             -- Haumea (妊神星)
             ["day-night-cycle"] = 0.37681889586 * day, -- 妊神星昼夜周期：约3.9小时
@@ -449,6 +469,7 @@ local planets = {
         orientation = 80 / 360,
         magnitude = 0.25,
         map_gen_settings = planet_map_gen.eris(),
+        asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.nauvis_vulcanus, 0.9),
         surface_properties = {
             -- Eris (阋神星)
             ["day-night-cycle"] = 0.37681889586 * day, -- 阋神星昼夜周期：约15.8小时
@@ -470,6 +491,7 @@ local planets = {
         orientation = 10 / 360,
         magnitude = 0.25,
         map_gen_settings = planet_map_gen.gonggong(),
+        asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.nauvis_vulcanus, 0.9),
         surface_properties = {
             -- Gonggong (共工星)
             ["day-night-cycle"] = 0.37681889586 * day, -- 共工星昼夜周期：约25小时
