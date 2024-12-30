@@ -9,7 +9,8 @@
         "space-age",
         "alien-biomes",
         "maraxsis",
-        "? visible-planets >= 1.1.6"
+        "? visible-planets >= 1.1.6",
+        "! maraxsis-start"
     ],
     "factorio_version": "2.0",
     "space_travel_required": true,
