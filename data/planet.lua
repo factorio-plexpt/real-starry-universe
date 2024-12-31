@@ -13,6 +13,10 @@ local planets = {
     {
         type = "space-location", -- This may need to be changed to "planet".
         name = "sol", -- Similar to how the moon is called luna, the sun is called sol. This is actually more commonly used than luna as the word solar is derived from the word sol.
+        object_properties = {
+            type = "star", -- This object is a star.
+            parent_object = nil, -- The object this star orbits.
+        },
         icon = "__core__/graphics/icons/starmap-star.png", -- This should eventually be replaced with a proper image.
         icon_size = 512,
         starmap_icon = "__core__/graphics/icons/starmap-star.png",
@@ -27,6 +31,10 @@ local planets = {
     {
         type = "planet",
         name = "mercury", -- 水星
+        object_properties = {
+            type = "planet", -- This object is a planet.
+            parent_object = "sol", -- The object this planet orbits.
+        },
         icon = "__real-starry-universe__/graphics/mercury.png",
         icon_size = 512,
         gravity_pull = 3.7, -- 水星表面重力 (相对值)
@@ -48,6 +56,10 @@ local planets = {
     {
         type = "planet",
         name = "venus", -- 金星
+        object_properties = {
+            type = "planet", -- This object is a planet.
+            parent_object = "sol", -- The object this planet orbits.
+        },
         icon = "__real-starry-universe__/graphics/venus.png",
         icon_size = 512,
         gravity_pull = 8.87,
@@ -69,6 +81,10 @@ local planets = {
     {
         type = "planet",
         name = "earth", -- 地球
+        object_properties = {
+            type = "planet", -- This object is a planet.
+            parent_object = "sol", -- The object this planet orbits.
+        },
         icon = "__real-starry-universe__/graphics/earth.png",
         icon_size = 1024,
         gravity_pull = 9.8,
@@ -90,8 +106,10 @@ local planets = {
     {
         type = "planet",
         name = "luna",
-        moon = true, -- This is a moon.
-        parent_object = "earth", -- The object this moon orbits.
+        object_properties = {
+            type = "moon", -- This object is a moon.
+            parent_object = "earth", -- The object this moon orbits.
+        },
         icon = "__real-starry-universe__/graphics/luna.png",
         icon_size = 512,
         gravity_pull = 1.62, -- 月球的重力
@@ -113,6 +131,10 @@ local planets = {
     {
         type = "planet",
         name = "mars",
+        object_properties = {
+            type = "planet", -- This object is a planet.
+            parent_object = "sol", -- The object this planet orbits.
+        },
         icon = "__real-starry-universe__/graphics/mars.png",
         icon_size = 512,
         gravity_pull = 3.71,
@@ -134,8 +156,10 @@ local planets = {
     {
         type = "planet",
         name = "phobos", -- Phobos, the first moon of mars.
-        moon = true, -- This is a moon.
-        parent_object = "mars", -- The object this moon orbits.
+        object_properties = {
+            type = "moon", -- This object is a moon.
+            parent_object = "mars", -- The object this moon orbits.
+        },
         icon = placeholder_png,
         icon_size = 512,
         gravity_pull = 0.0057, -- This is in m/s, convert as necessary.
@@ -158,8 +182,10 @@ local planets = {
     {
         type = "planet",
         name = "deimos", -- Deimos, the second moon of mars.
-        moon = true, -- This is a moon.
-        parent_object = "mars", -- The object this moon orbits.
+        object_properties = {
+            type = "moon", -- This object is a moon.
+            parent_object = "mars", -- The object this moon orbits.
+        },
         icon = placeholder_png,
         icon_size = 512,
         gravity_pull = 0.003, -- This is in m/s, convert as necessary.
@@ -182,6 +208,10 @@ local planets = {
     {
         type = "space-location", -- You should be able to land on asteroids in the asteroid belt. but must go to ceres
         name = "asteroid-belt-inner",
+        object_properties = {
+            type = "asteroid-belt", -- This object is an asteroid belt.
+            parent_object = "sol", -- The object this asteroid belt orbits.
+        },
         icon = "__real-starry-universe__/graphics/asteroid-belt-inner.png",
         icon_size = 512,
         gravity_pull = 0.01, -- Aproximate surface gravity for a specific asteroid (which will right now represnent all asteroids)
@@ -203,6 +233,11 @@ local planets = {
     {
         type = "planet",
         name = "ceres", -- 谷神星
+        object_properties = {
+            type = "asteroid", -- This object is an asteroid.
+            parent_object = "sol", -- The object this asteroid orbits.
+            belt = "inner-asteroid-belt", -- The asteroid belt this asteroid is in.
+        },
         icon = "__real-starry-universe__/graphics/ceres.png",
         icon_size = 512,
         gravity_pull = 0.028,
@@ -225,6 +260,11 @@ local planets = {
     {
         type = "planet",
         name = "vesta", -- 灶神星
+        object_properties = {
+            type = "asteroid", -- This object is an asteroid.
+            parent_object = "sol", -- The object this asteroid orbits.
+            belt = "inner-asteroid-belt", -- The asteroid belt this asteroid is in.
+        },
         icon = "__real-starry-universe__/graphics/vesta.png",
         icon_size = 512,
         gravity_pull = 0.025,
@@ -247,6 +287,11 @@ local planets = {
     {
         type = "planet",
         name = "pallas", -- 智神星
+        object_properties = {
+            type = "asteroid", -- This object is an asteroid.
+            parent_object = "sol", -- The object this asteroid orbits.
+            belt = "inner-asteroid-belt", -- The asteroid belt this asteroid is in.
+        },
         icon = "__real-starry-universe__/graphics/pallas.png",
         icon_size = 512,
         gravity_pull = 0.020,
@@ -268,6 +313,11 @@ local planets = {
     {
         type = "planet",
         name = "hygiea", -- 健神星
+        object_properties = {
+            type = "asteroid", -- This object is an asteroid.
+            parent_object = "sol", -- The object this asteroid orbits.
+            belt = "inner-asteroid-belt", -- The asteroid belt this asteroid is in.
+        },
         icon = "__real-starry-universe__/graphics/hygiea.png",
         icon_size = 512,
         gravity_pull = 0.005,
@@ -289,6 +339,10 @@ local planets = {
     {
         type = "planet",
         name = "jupiter", -- 木星
+        object_properties = {
+            type = "planet", -- This object is a planet.
+            parent_object = "sol", -- The object this planet orbits.
+        },
         icon = "__real-starry-universe__/graphics/jupiter.png",
         icon_size = 512,
         gravity_pull = 24.79,
@@ -310,8 +364,10 @@ local planets = {
     {
         type = "planet",
         name = "io", -- Io
-        moon = true, -- This is a moon.
-        parent_object = "jupiter", -- Io orbits jupiter.
+        object_properties = {
+            type = "moon", -- This object is a moon.
+            parent_object = "jupiter", -- Io orbits jupiter.
+        },
         icon = placeholder_png,
         icon_size = 512,
         gravity_pull = 1.796502844, -- This is in m/s, convert as necessary.
@@ -333,8 +389,10 @@ local planets = {
     {
         type = "planet",
         name = "europa", -- 木卫二
-        moon = true, -- This is a moon.
-        parent_object = "jupiter", -- Europa orbits jupiter.
+        object_properties = {
+            type = "moon", -- This object is a moon.
+            parent_object = "jupiter", -- Europa orbits jupiter.
+        },
         icon = placeholder_png,
         --icon = "__real-starry-universe__/graphics/europa.png",
         icon_size = 512,
@@ -358,8 +416,10 @@ local planets = {
     {
         type = "planet",
         name = "ganymede", -- 木卫三
-        moon = true, -- This is a moon.
-        parent_object = "jupiter", -- Ganymede orbits jupiter.
+        object_properties = {
+            type = "moon", -- This object is a moon.
+            parent_object = "jupiter", -- Ganymede orbits jupiter.
+        },
         icon = placeholder_png,
         --icon = "__real-starry-universe__/graphics/ganymede.png",
         icon_size = 512,
@@ -383,8 +443,10 @@ local planets = {
     {
         type = "planet",
         name = "callisto", -- Callisto
-        moon = true, -- This is a moon.
-        parent_object = "jupiter", -- Callisto orbits jupiter.
+        object_properties = {
+            type = "moon", -- This object is a moon.
+            parent_object = "jupiter", -- Callisto orbits jupiter.
+        },
         icon = placeholder_png,
         icon_size = 512,
         gravity_pull = 1.235, -- This is in m/s, convert as necessary.
@@ -406,6 +468,10 @@ local planets = {
     {
         type = "planet",
         name = "saturn", -- 土星
+        object_properties = {
+            type = "planet", -- This object is a planet.
+            parent_object = "sol", -- The object this planet orbits.
+        },
         icon = "__real-starry-universe__/graphics/saturn.png",
         icon_size = 512,
         gravity_pull = 10.44,
@@ -427,8 +493,10 @@ local planets = {
     {
         type = "planet",
         name = "mimas", -- Mimas
-        moon = true, -- This is a moon.
-        parent_object = "saturn", -- Mimas orbits saturn.
+        object_properties = {
+            type = "moon", -- This object is a moon.
+            parent_object = "saturn", -- Mimas orbits saturn.
+        },
         icon = placeholder_png,
         icon_size = 512,
         gravity_pull = 0.064, -- This is in m/s, convert as necessary.
@@ -450,8 +518,10 @@ local planets = {
     {
         type = "planet",
         name = "enceladus", -- 土卫二
-        moon = true, -- This is a moon.
-        parent_object = "saturn", -- Enceladus orbits saturn.
+        object_properties = {
+            type = "moon", -- This object is a moon.
+            parent_object = "saturn", -- Enceladus orbits saturn.
+        },
         icon = placeholder_png,
         --icon = "__real-starry-universe__/graphics/enceladus.png",
         icon_size = 512,
@@ -475,8 +545,10 @@ local planets = {
     {
         type = "planet",
         name = "tethys", -- Tethys
-        moon = true, -- This is a moon.
-        parent_object = "saturn", -- Tethys orbits saturn.
+        object_properties = {
+            type = "moon", -- This object is a moon.
+            parent_object = "saturn", -- Tethys orbits saturn.
+        },
         icon = placeholder_png,
         icon_size = 512,
         gravity_pull = 0.145, -- This is in m/s, convert as necessary.
@@ -498,8 +570,10 @@ local planets = {
     {
         type = "planet",
         name = "dione", -- Dione
-        moon = true, -- This is a moon.
-        parent_object = "saturn", -- Dione orbits saturn.
+        object_properties = {
+            type = "moon", -- This object is a moon.
+            parent_object = "saturn", -- Dione orbits saturn.
+        },
         icon = placeholder_png,
         icon_size = 512,
         gravity_pull = 0.212, -- This is in m/s, convert as necessary.
@@ -521,8 +595,10 @@ local planets = {
     {
         type = "planet",
         name = "rhea", -- Rhea
-        moon = true, -- This is a moon.
-        parent_object = "saturn", -- Rhea orbits saturn.
+        object_properties = {
+            type = "moon", -- This object is a moon.
+            parent_object = "saturn", -- Rhea orbits saturn.
+        },
         icon = placeholder_png,
         icon_size = 512,
         gravity_pull = 0.26, -- This is in m/s, convert as necessary.
@@ -545,8 +621,10 @@ local planets = {
         type = "planet",
         name = "titan", -- 土卫六
         icon = placeholder_png,
-        moon = true, -- This is a moon.
-        parent_object = "saturn", -- Titan orbits saturn.
+        object_properties = {
+            type = "moon", -- This object is a moon.
+            parent_object = "saturn", -- Titan orbits saturn.
+        },
         --icon = "__real-starry-universe__/graphics/titan.png",
         icon_size = 512,
         gravity_pull = 0.14,
@@ -570,8 +648,10 @@ local planets = {
         type = "planet",
         name = "hyperion", -- Hyperion
         icon = placeholder_png,
-        moon = true, -- This is a moon.
-        parent_object = "saturn", -- Hyperion orbits saturn.
+        object_properties = {
+            type = "moon", -- This object is a moon.
+            parent_object = "saturn", -- Hyperion orbits saturn.
+        },
         --icon = "__real-starry-universe__/graphics/hyperion.png",
         icon_size = 512,
         gravity_pull = 0.02, -- This is in m/s, convert as necessary. Average surface gravity across the whole unround moon.
@@ -594,8 +674,10 @@ local planets = {
     {
         type = "planet",
         name = "iapetus", -- Iapetus
-        moon = true, -- This is a moon.
-        parent_object = "saturn", -- Iapetus orbits saturn.
+        object_properties = {
+            type = "moon", -- This object is a moon.
+            parent_object = "saturn", -- Iapetus orbits saturn.
+        },
         icon = placeholder_png,
         icon_size = 512,
         gravity_pull = 0.223, -- This is in m/s, convert as necessary.
@@ -617,6 +699,10 @@ local planets = {
     {
         type = "planet",
         name = "uranus", -- 天王星
+        object_properties = {
+            type = "planet", -- This object is a planet.
+            parent_object = "sol", -- The object this planet orbits.
+        },
         icon = "__real-starry-universe__/graphics/uranus.png",
         icon_size = 512,
         gravity_pull = 8.87,
@@ -638,8 +724,10 @@ local planets = {
     {
         type = "planet",
         name = "ariel", -- Ariel
-        moon = true, -- This is a moon.
-        parent_object = "uranus", -- Ariel orbits Uranus.
+        object_properties = {
+            type = "moon", -- This object is a moon.
+            parent_object = "uranus", -- Ariel orbits Uranus.
+        },
         icon = placeholder_png,
         icon_size = 512,
         gravity_pull = 0.246, -- This is in m/s, convert as necessary.
@@ -661,8 +749,10 @@ local planets = {
     {
         type = "planet",
         name = "umbriel", -- Umbriel
-        moon = true, -- This is a moon.
-        parent_object = "uranus", -- Umbriel orbits Uranus.
+        object_properties = {
+            type = "moon", -- This object is a moon.
+            parent_object = "uranus", -- Umbriel orbits Uranus.
+        },
         icon = placeholder_png,
         icon_size = 512,
         gravity_pull = 0.195, -- This is in m/s, convert as necessary.
@@ -684,8 +774,10 @@ local planets = {
     {
         type = "planet",
         name = "titania", -- Titania
-        moon = true, -- This is a moon.
-        parent_object = "uranus", -- Titania orbits Uranus.
+        object_properties = {
+            type = "moon", -- This object is a moon.
+            parent_object = "uranus", -- Titania orbits Uranus.
+        },
         icon = placeholder_png,
         icon_size = 512,
         gravity_pull = 0.371, -- This is in m/s, convert as necessary.
@@ -707,8 +799,10 @@ local planets = {
     {
         type = "planet",
         name = "oberon", -- Oberon
-        moon = true, -- This is a moon.
-        parent_object = "uranus", -- Oberon orbits Uranus.
+        object_properties = {
+            type = "moon", -- This object is a moon.
+            parent_object = "uranus", -- Oberon orbits Uranus.
+        },
         icon = placeholder_png,
         icon_size = 512,
         gravity_pull = 0.358, -- This is in m/s, convert as necessary.
@@ -730,8 +824,10 @@ local planets = {
     {
         type = "planet",
         name = "miranda", -- Miranda
-        moon = true, -- This is a moon.
-        parent_object = "uranus", -- Miranda orbits Uranus.
+        object_properties = {
+            type = "moon", -- This object is a moon.
+            parent_object = "uranus", -- Miranda orbits Uranus.
+        },
         icon = placeholder_png,
         icon_size = 512,
         gravity_pull = 0.076, -- This is in m/s, convert as necessary.
@@ -753,6 +849,10 @@ local planets = {
     {
         type = "planet",
         name = "neptune", -- 海王星
+        object_properties = {
+            type = "planet", -- This object is a planet.
+            parent_object = "sol", -- The object this planet orbits.
+        },
         icon = "__real-starry-universe__/graphics/neptune.png",
         icon_size = 512,
         gravity_pull = 11.15,
@@ -774,8 +874,10 @@ local planets = {
     {
         type = "planet",
         name = "triton", -- 海卫一
-        moon = true, -- This is a moon.
-        parent_object = "neptune", -- Triton orbits Neptune.
+        object_properties = {
+            type = "moon", -- This object is a moon.
+            parent_object = "neptune", -- Triton orbits Neptune.
+        },
         icon = placeholder_png,
         --icon = "__real-starry-universe__/graphics/triton.png",
         icon_size = 512,
@@ -798,6 +900,10 @@ local planets = {
     {
         type = "planet",
         name = "pluto", -- Pluto (冥王星)
+        object_properties = {
+            type = "dwarf-planet", -- This object is a dwarf planet.
+            parent_object = "sol", -- The object this dwarf planet orbits.
+        },
         icon = "__real-starry-universe__/graphics/pluto.png",
         icon_size = 512,
         gravity_pull = 0.62,
@@ -819,14 +925,17 @@ local planets = {
     {
         type = "planet",
         name = "charon", -- 冥卫一
+        object_properties = {
+            type = "moon", -- This object is a moon.
+            parent_object = "pluto", -- The object this moon orbits.
+        },
         icon = placeholder_png,
         --icon = "__real-starry-universe__/graphics/charon.png",
         icon_size = 512,
         gravity_pull = 0.028,
-        distance = 116, -- 39.5 AU (relative to Pluto)
-        orientation = 290 / 360,
+        distance = 1, -- 39.5 AU (relative to Pluto)
+        orientation = 180 / 360,
         magnitude = 0.15, -- The sizes of planets shown on star maps. 1 is the size of Earth (12,742km).  11.2 is the size of Jupiter (139,820).
-        label_orientation = 90 / 360,
         draw_orbit = false, -- It does not draw the orbit around the Sun if false.
         map_gen_settings = planet_map_gen.charon(),
         surface_properties = {
@@ -842,6 +951,10 @@ local planets = {
     {
         type = "space-location", -- You should be able to land on asteroids in the asteroid belt. but must land on one of it like pluto.
         name = "asteroid-belt-outer",
+        object_properties = {
+            type = "asteroid-belt", -- This object is an asteroid belt.
+            parent_object = "sol", -- The object this asteroid belt orbits.
+        },
         icon = "__real-starry-universe__/graphics/asteroid-belt-outer.png",
         icon_size = 512,
         gravity_pull = 0.01, -- Aproximate surface gravity for asteroids in the outer asteroid belt (also known as kuiper belt)
@@ -863,6 +976,11 @@ local planets = {
     {
         type = "planet",
         name = "makemake", -- 鸟神星
+        object_properties = {
+            type = "asteroid", -- This object is an asteroid.
+            parent_object = "sol", -- The object this asteroid orbits.
+            belt = "outer-asteroid-belt", -- The asteroid belt this asteroid is in.
+        },
         icon = "__real-starry-universe__/graphics/makemake.png",
         icon_size = 1024,
         gravity_pull = 0.05,
@@ -884,6 +1002,11 @@ local planets = {
     {
         type = "planet",
         name = "haumea", -- 妊神星
+        object_properties = {
+            type = "asteroid", -- This object is an asteroid.
+            parent_object = "sol", -- The object this asteroid orbits.
+            belt = "outer-asteroid-belt", -- The asteroid belt this asteroid is in.
+        },
         icon = "__real-starry-universe__/graphics/haumea.png",
         icon_size = 1024,
         gravity_pull = 0.04,
@@ -905,6 +1028,11 @@ local planets = {
     {
         type = "planet",
         name = "eris", -- 阋神星
+        object_properties = {
+            type = "asteroid", -- This object is an asteroid.
+            parent_object = "sol", -- The object this asteroid orbits.
+            belt = "outer-asteroid-belt", -- The asteroid belt this asteroid is in.
+        },
         icon = "__real-starry-universe__/graphics/eris.png",
         icon_size = 1024,
         gravity_pull = 0.08,
@@ -926,6 +1054,11 @@ local planets = {
     {
         type = "planet",
         name = "gonggong", -- 共工星
+        object_properties = {
+            type = "asteroid", -- This object is an asteroid.
+            parent_object = "sol", -- The object this asteroid orbits.
+            belt = "outer-asteroid-belt", -- The asteroid belt this asteroid is in.
+        },
         icon = "__real-starry-universe__/graphics/gonggong.png",
         icon_size = 1024,
         gravity_pull = 0.06,
@@ -948,48 +1081,59 @@ local planets = {
 }
 
 for i, Planet in pairs(planets) do
-    if not Planet.moon then
-        local CurvingFactor = 10 / 360
-        local Moons = {}
-        for j, Object in pairs(planets) do
-            if Object.moon and Object.parent_object == Planet.name then
-                table.insert(Moons, j, Object)
+    if Planet.object_properties then
+        local properties = Planet.object_properties
+        if properties.type == "planet" or properties.type == "dwarf-planet" then
+            local CurvingFactor = 10 / 360
+            local Moons = {}
+            for j, Object in pairs(planets) do
+                if Object.object_properties.type == "moon" and Object.object_properties.parent_object == Planet.name then
+                    table.insert(Moons, j, Object)
+                end
             end
-        end
-
-        for j, Moon in pairs(Moons) do
-            Moon.orientation = Moon.orientation + ( CurvingFactor * ( Moon.distance - 1 ) )
-            if Moon.orientation > 1 then
-                Moon.orientation = Moon.orientation % 1 -- Label orientation cannot be greater than 1.
+    
+            for j, Moon in pairs(Moons) do
+                Moon.orientation = Moon.orientation + ( CurvingFactor * ( Moon.distance - 1 ) )
+                if Moon.orientation > 1 then
+                    Moon.orientation = Moon.orientation % 1 -- Label orientation cannot be greater than 1.
+                end
             end
+        elseif properties.type == "moon" then
         end
-    else
+        
         if not Planet.label_orientation then
             Planet.label_orientation = ( 270 / 360 + Planet.orientation )
             if Planet.label_orientation > 1 then
                 Planet.label_orientation = Planet.label_orientation % 1 -- Label orientation cannot be greater than 1.
             end
         end
-        if not Planet.draw_orbit then
-            Planet.draw_orbit = false
-        end
-        if not Planet.orientation then
-            --need parent's orientation
-            Planet.orientation = 270 / 360
-        end
+
         local ParentObject = nil
-        if Planet.parent_object ~= nil then
+        
+        if Planet.object_properties.parent_object ~= nil then
             for _,Object in pairs(planets) do
-                if Planet.parent_object == Object.name then
+                if Planet.object_properties.parent_object == Object.name then
                     ParentObject = Object
+                    break
                 end
             end
         end
         if ParentObject ~= nil then
             rotation_util.Unrelate(Planet, ParentObject)
-        else
-            log("ParentObject of moon \"" .. Planet.name .. "\" is nil! Intended object was \"" .. Planet.parent_object .. "\". Is this correct?")
+        elseif Planet.distance ~= 0 then
+            log("ParentObject of object \"" .. Planet.name .. "\" is nil! Intended parent object was \"" .. Planet.object_properties.parent_object .. "\". Is this correct?")
         end
+
+        if ParentObject and ParentObject.distance ~= 0 and not Planet.draw_orbit then
+            Planet.draw_orbit = false
+        end
+
+    end
+
+    if not Planet.orientation then
+        --need parent's orientation -- Not nessecary, this is already relative to the parent object (if any) and even then, only a default.
+        log("Planet \"" .. Planet.name .. "\" has no orientation property! It's been replaced with 270 / 360.")
+        Planet.orientation = 270 / 360
     end
 
     -- Check if the planet has an icon but does not have a starmap_icon
@@ -1012,7 +1156,7 @@ for i, Planet in pairs(planets) do
         if distance_au == 0 then -- Check if the distance is equal to 0 and apply a small change so that the solar power is not infinity.
             distance_au = 0.04623
         end
-        
+
         local solar_power_on_earth = 1380 -- Solar power as measured in orbit around earth (watts per meter squared)
 
         local solar_power_in_space_unscaled = solar_power_on_earth / (distance_au * distance_au) -- Solar power as measured in orbit around the planet (watts per meter squared)

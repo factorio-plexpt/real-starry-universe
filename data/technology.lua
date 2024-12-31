@@ -56,10 +56,12 @@ for _, planet in pairs(planets) do
                 planet_technology[4] = 512
             end
 
-            if planet.moon == true then
-                planet_technology[5] = "moon"
-            else
-                planet_technology[5] = "planet"
+            planet_technology[5] = planet.object_properties.type
+
+            if planet_technology[5] == "asteroid-belt" then
+                planet_technology[5] = "ast-belt"
+            elseif planet_technology[5] == "dwarf-planet" then
+                planet_technology[5] = "dwf-planet"
             end
 
             table.insert(planet_technologies, planet_technology)

@@ -2,6 +2,9 @@ local RotationUtil = {}
 
 -- Change coordinate systems from that of the first paramater to that of the second. Expects a "space-location" or "planet" Prototype for each paramater, with the first paramater's distance and orientation being relative to that of the second.
 local function Unrelate(Planet, ParentObject)
+    if ParentObject.distance == 0 then
+        return -- This causes errors down the line, so just ignore that you ever called the function. The intended behavior of the function in this case is to do nothing anyway.
+    end
     local AB = ParentObject.distance
     local BC = Planet.distance + ParentObject.magnitude
     local AB_BC = Planet.orientation
@@ -27,6 +30,9 @@ RotationUtil.Unrelate = Unrelate
 
 -- Change coordinate systems from that of the first and second paramaters to one relative to the second. Expects a "space-location" or "planet" Prototype for each paramater, with both paramaters in the same coordinate system.
 local function Relate(Planet, ParentObject)
+    if Planet.distance == 0 then
+        error("Paramater 1 of function relate contains a zeroed distance! This would cause glitches, so I'll crash instead to make sure that intended behavior is followed.")
+    end
     local AB = ParentObject.distance
     local AC = Planet.distance
     local AB_AC = math.abs(Planet.orientation - ParentObject.orientation)

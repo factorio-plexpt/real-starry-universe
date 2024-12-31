@@ -1,0 +1,7 @@
+{
+    "technology":
+    [
+        ["planet-discovery-inner-asteroid-belt", "ast-belt-discovery-inner-asteroid-belt"],
+        ["planet-discovery-outer-asteroid-belt", "ast-belt-discovery-outer-asteroid-belt"]
+    ]
+}

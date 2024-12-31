@@ -1,0 +1,13 @@
+{
+    "technology":
+    [
+        ["planet-discovery-makemake", "asteroid-discovery-makemake"],
+        ["planet-discovery-eris", "asteroid-discovery-eris"],
+        ["planet-discovery-haumea", "asteroid-discovery-haumea"],
+        ["planet-discovery-gonggong", "asteroid-discovery-gonggong"],
+        ["planet-discovery-ceres", "asteroid-discovery-gonggong"],
+        ["planet-discovery-vesta", "asteroid-discovery-vesta"],
+        ["planet-discovery-pallas", "asteroid-discovery-pallas"],
+        ["planet-discovery-hygiea", "asteroid-discovery-hygiea"]
+    ]
+}
