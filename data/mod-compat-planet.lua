@@ -90,7 +90,7 @@ if mods["maraxsis"] then -- Check if the mod exists, just in case. Plus it's a c
         maraxsis_discovery.localised_description = {"technology-description.planet-discovery-neptune"}
     end
 
-    maraxsis_discovery.unit = neptune_discovery.unit
+    maraxsis_discovery.unit = table.deepcopy(neptune_discovery.unit)
 
     merge_prerequisites(maraxsis_discovery, neptune_discovery)
 

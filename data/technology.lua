@@ -37,7 +37,7 @@ end
 -- Loop through each planet and make a technology.
 for _, planet in pairs(planets) do
     if planet then
-        if data.raw["technology"]["planet-discovery-" .. planet.name] == nil then -- Compatibility check to not duplicate planet discovery technologies.
+        if data.raw["technology"]["planet-discovery-" .. planet.name] == nil and data.raw["technology"]["moon-discovery-" .. planet.name] == nil then -- Compatibility check to not duplicate planet or moon discovery technologies.
             local planet_technology = {}
             planet_technology[1] = planet.name
             planet_technology[2] = {"space-platform-thruster"}
@@ -55,6 +55,13 @@ for _, planet in pairs(planets) do
             else
                 planet_technology[4] = 512
             end
+
+            if planet.moon == true then
+                planet_technology[5] = "moon"
+            else
+                planet_technology[5] = "planet"
+            end
+
             table.insert(planet_technologies, planet_technology)
         end
     end
@@ -65,11 +72,12 @@ for i, tech in ipairs(planet_technologies) do
     local prerequisites = tech[2]
     local icon = tech[3]
     local icon_size = tech[4]
+    local planet_type = tech[5]
 
     data:extend({
         {
             type = "technology",
-            name = "planet-discovery-" .. planet_name,
+            name = planet_type .. "-discovery-" .. planet_name,
             icon = icon, -- 替换为行星对应的图标路径
             icon_size = icon_size,
             essential = true,
