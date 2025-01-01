@@ -1,4 +1,13 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.1.14
+Date: 2025-01-01
+  Changes:
+    - Mark mod "Maraxsis Start" as incompatible.
+    - Various internal code changes.
+    - Internally rename multiple planet discovery technologies which weren't unlocking planets.
+  Bugfixes:
+    - Fix crash when loading a new game (or an old game without the mod previously installed)
+---------------------------------------------------------------------------------------------------
 Version: 1.1.13
 Date: 2024-12-15
   Translation:
@@ -19,7 +28,7 @@ Date: 2024-11-30
 Version: 1.1.2
 Date: 2024-11-30
   Features:
-    -  Astronomical data is retained to two decimal places.
+    -  Astronomical data is retained to only two decimal places.
     -  update earth
 
 ---------------------------------------------------------------------------------------------------
