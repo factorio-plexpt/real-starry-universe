@@ -56,14 +56,6 @@ for _, planet in pairs(planets) do
                 planet_technology[4] = 512
             end
 
-            planet_technology[5] = planet.object_properties.type
-
-            if planet_technology[5] == "asteroid-belt" then
-                planet_technology[5] = "ast-belt"
-            elseif planet_technology[5] == "dwarf-planet" then
-                planet_technology[5] = "dwf-planet"
-            end
-
             table.insert(planet_technologies, planet_technology)
         end
     end
@@ -74,12 +66,11 @@ for i, tech in ipairs(planet_technologies) do
     local prerequisites = tech[2]
     local icon = tech[3]
     local icon_size = tech[4]
-    local planet_type = tech[5]
 
     data:extend({
         {
             type = "technology",
-            name = planet_type .. "-discovery-" .. planet_name,
+            name = "planet-discovery-" .. planet_name,
             icon = icon, -- 替换为行星对应的图标路径
             icon_size = icon_size,
             essential = true,
